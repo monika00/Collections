@@ -10,7 +10,7 @@ public class Collections_Int {
     a1.add("Zara");
     a1.add("Mahnaz");
     a1.add("Ayan");
-    System.out.println(" ArrayList Elements");
+    System.out.println("ArrayList Elements");
     System.out.print("\t" + a1);
 
     //LinkedList
@@ -19,7 +19,7 @@ public class Collections_Int {
     l1.add("Mahnaz");
     l1.add("Ayan");
     System.out.println();
-    System.out.println(" LinkedList Elements");
+    System.out.println("LinkedList Elements");
     System.out.print("\t" + l1);
 	
 	//HashSet
@@ -40,6 +40,7 @@ public class Collections_Int {
     System.out.println("HashMap");
     System.out.println("\t" + m1);
 	
+    System.out.println("changes");
 	}
     
 }

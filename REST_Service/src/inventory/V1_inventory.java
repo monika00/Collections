@@ -22,11 +22,12 @@ public class V1_inventory {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String returnSQLData() throws Exception{
+	public Response returnSQLData() throws Exception{
 		
 		PreparedStatement query = null;
 		Connection conn = null;
 		String returnString = null;
+		Response res = null;
 		
 		try{
 			conn = DataBaseCon.DBConn();
@@ -43,6 +44,8 @@ public class V1_inventory {
 			
 			returnString = json.toString();
 			//returnString = rsmd.toString();
+			
+			res = Response.ok(returnString).build();
 		}
 		
 		catch(Exception e){
@@ -52,7 +55,7 @@ public class V1_inventory {
 			if(conn != null) conn.close();
 		}
 		
-		return returnString;
+		return res;
 	}
 
 }

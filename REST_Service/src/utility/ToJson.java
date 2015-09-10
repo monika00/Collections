@@ -3,7 +3,7 @@ package utility;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
 
-//import org.owasp.esapi.ESAPI;
+import org.owasp.esapi.ESAPI;
 
 import java.sql.ResultSet;
 
@@ -12,6 +12,7 @@ public class ToJson {
 	public JSONArray toJSONArray(ResultSet rs) throws Exception{
 		
 		JSONArray json = new JSONArray();
+		String temp = null;
 		
 		try{
 			
@@ -90,8 +91,13 @@ public class ToJson {
                    	 	System.out.println("ToJson: NUMERIC");
                      }
                     else if(rsmd.getColumnType(i)==java.sql.Types.CHAR){
-                    	obj.put(column_name, rs.getString(column_name).replaceAll("\\s+",""));
-                    	System.out.println("ToJson: CHAR");
+                    	//obj.put(column_name, rs.getString(column_name).replaceAll("\\s+",""));
+                    	//System.out.println("ToJson: CHAR");
+                    	
+                    	temp = rs.getString(column_name).replaceAll("\\s+",""); //saving column data to temp variable
+                   	 	temp = ESAPI.encoder().canonicalize(temp); //decoding data to base state
+                   	 	temp = ESAPI.encoder().encodeForHTML(temp); //encoding to be browser safe
+                   	 	obj.put(column_name, temp); //putting data into JSON object
                     }
                     else {
                    	 	obj.put(column_name, rs.getObject(column_name));

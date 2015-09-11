@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 
 public class DataBaseCon {
 	
-	// db: testdb user: postgres pass: slaptazodis00 schema: test table: fisrst
+	// db: testdb user: postgres pass: slaptazodis00 schema: test table: first
 	public static Connection DBConn() throws Exception{
 		
 		Connection conn = null;

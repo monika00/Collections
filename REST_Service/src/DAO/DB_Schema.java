@@ -18,7 +18,7 @@ public class DB_Schema {
 	
 		try{
 			conn =  DataBaseCon.DBConn();
-			query = conn.prepareStatement("select firstname,lastname from test.first where UPPER(fisrtname) = ?");
+			query = conn.prepareStatement("select test.first.firstname,test.first.lastname from test.first where UPPER(test.first.firstname) = ?");
 		
 			query.setString(1, data.toUpperCase());
 			ResultSet rs = query.executeQuery();

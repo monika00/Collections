@@ -114,8 +114,8 @@ public class V2_inventory {
 	}
 	
 	@POST
-	@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	//@Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addSQLData(String data) throws Exception{
 		

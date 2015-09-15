@@ -27,7 +27,7 @@ $(document).ready(function() {
 		
 		ajaxObj = {  
 			type: "POST",
-			url: "http://localhost:7001/com.youtube.rest/api/v2/inventory/", 
+			url: "http://localhost:8080/REST_Service/api/v2/inventory", 
 			data: JSON.stringify(jsObj), 
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {
@@ -64,7 +64,7 @@ $(document).ready(function() {
 		
 		ajaxObj = {  
 			type: "POST",
-			url: "http://localhost:7001/com.youtube.rest/api/v3/inventory/", 
+			url: "http://localhost:8080/REST_Service/api/v3/inventory/", 
 			data: JSON.stringify(jsObj), 
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {

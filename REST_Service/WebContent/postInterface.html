@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rest with post method</title>
+	<script src=js/jquery-min.js></script>
+	<script src="js/poolyfill.js"></script>
+	<script src="js/post.js"></script>
+</head>
+<body>
+
+	<h1>API Post example</h1>
+	
+	<form id="post_example" name="post_example" action="#">
+		<table>
+			<tr>
+				<td>firstname: </td>
+				<td><input type="text" name="firstname" id="firstname" maxlength=50></td>
+			</tr>
+			<tr>
+				<td>lastname: </td>
+				<td><input type="text" name="lastname" id="lastname" maxlength=50></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="button" name="submit_it" id="submit_it" value="Submit"> Using jackson mapper</td> 
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="button" name="submit_it2" id="submit_it2" value="Submit_v2"> Using JSON array and object</td>
+			</tr>
+		</table>
+	</form>
+	
+	<br/>
+	<div id="div_ajaxResponse"></div>
+</body>
+</html>

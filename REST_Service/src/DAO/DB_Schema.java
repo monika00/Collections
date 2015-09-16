@@ -15,7 +15,7 @@ public class DB_Schema {
 	
 		try{
 			conn =  DataBaseCon.DBConn();
-			query = conn.prepareStatement("INSERT INTO test.first (test.first.firstname,test.first.lastname) VALUES (?,?) ");
+			query = conn.prepareStatement("INSERT INTO test.first (firstname,lastname) VALUES (?,?) ");
 		
 			query.setString(1, firstname);
 			query.setString(2, lastname);

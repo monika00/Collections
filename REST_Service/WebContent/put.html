@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Rest with PUT</title>
+	
+	<script src="js/jquery-min"></script>
+	<script src="js/poolyfill"></script>
+	<script src="js/put.js"></script>
+
+</head>
+<body>
+	<h1>API PUT Example</h1>
+	
+	<div id="get_inventory"></div>
+	<br/>
+	<hr/>
+	<h1>Update data</h1>
+	
+	<form id="put_example" name="put_example" action="#">
+		<table border="1">
+			<tr>
+				<td>firstname</td>
+				<td id="set_firstname"></td>
+			</tr>
+			<tr>
+				<td>lastname</td>
+				<td id="set_lastname"></td>
+			</tr>
+			<tr>
+				<td> 
+					<input type="hidden" id="set_data" name="data">
+				</td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+	<br/>
+	<div id="update_response"></div>
+	<br/>
+	<br/>
+</body>
+</html>

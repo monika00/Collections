@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Rest with PUT</title>
 	
-	<script src="js/jquery-min"></script>
-	<script src="js/poolyfill"></script>
+	<script src="js/jquery-min.js"></script>
+	<script src="js/poolyfill.js"></script>
 	<script src="js/put.js"></script>
 
 </head>
@@ -21,16 +21,13 @@
 		<table border="1">
 			<tr>
 				<td>firstname</td>
-				<td id="set_firstname"></td>
+				<td><input type="text" id="set_firstname" name="firstname"></td>
 			</tr>
 			<tr>
 				<td>lastname</td>
 				<td id="set_lastname"></td>
 			</tr>
 			<tr>
-				<td> 
-					<input type="hidden" id="set_data" name="data">
-				</td>
 				<td><input type="submit" value="Submit"></td>
 			</tr>
 		</table>

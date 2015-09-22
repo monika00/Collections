@@ -20,10 +20,9 @@ $(document).ready(function() {
 		//console.log("submit button has been clicked");
 		e.preventDefault(); //cancel form submit
 		
-		var jsObj = $post_example.serializeObject()
-			, ajaxObj = {};
+		var jsObj = $post_example.serializeObject(), ajaxObj = {};
 		
-		//console.log(jsObj);
+		console.log(jsObj);
 		
 		ajaxObj = {  
 			type: "POST",
@@ -34,7 +33,7 @@ $(document).ready(function() {
 				console.log("Error " + jqXHR.getAllResponseHeaders() + " " + errorThrown);
 			},
 			success: function(data) { 
-				//console.log(data);
+				console.log(data);
 				if(data[0].HTTP_CODE == 200) {
 					$('#div_ajaxResponse').text( data[0].MSG );
 				}
@@ -57,8 +56,7 @@ $(document).ready(function() {
 		//console.log("submit button has been clicked");
 		e.preventDefault(); //cancel form submit
 		
-		var jsObj = $post_example.serializeObject()
-			, ajaxObj = {};
+		var jsObj = $post_example.serializeObject(), ajaxObj = {};
 		
 		//console.log(jsObj);
 		

@@ -18,15 +18,15 @@ $(document).ready(function() {
 			, $tr = $this.closest('tr')
 			, lastname = $tr.find('.CL_lastname').text();
 		
-		deleteInventory(obj, lastname, PC_PARTS_CODE);
+		deleteInventory(obj, firstname, lastname);
 	});
 });
 
-function deleteInventory(obj, maker) {
-	
+function deleteInventory(obj, firstname, lastname) {
+	console.log(obj, firstname, lastname);
 	ajaxObj = {  
 			type: "DELETE",
-			url: "http://localhost:8080/REST_Service/api/V3/inventory/" + maker,
+			url: "http://localhost:8080/REST_Service/api/V3/inventory/"+firstname+"/" + lastname,
 			data: JSON.stringify(obj), 
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {
@@ -53,7 +53,7 @@ function getInventory() {
 	
 	ajaxObj = {  
 			type: "GET",
-			url: "http://localhost:8080/REST_Service/api/V3/inventory/", 
+			url: "http://localhost:8080/REST_Service/api/V1/inventory/", 
 			data: "ts="+n,
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {

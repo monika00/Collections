@@ -9,19 +9,23 @@
 $(document).ready(function() {
 	
 	var $put_example = $('#put_example')
-		, $firstname = $('#set_firstname')
-		, $lastname= $('#set_lastname');
-	
+		, $set_firstname = $('#set_firstname')
+		, $set_lastname= $('#set_lastname');
+
 	getInventory();
+	
 	
 	$(document.body).on('click', ':button, .UPDATE_BTN', function(e) {
 		//console.log(this);
 		var $this = $(this)
-			, data= $this.val()
-			, $tr = $this.closest('tr');
+			, data = $this.val()
+			, $tr = $this.closest('tr')
+			, firstname = $tr.find('.CL_firstname').text()
+			, lastname = $tr.find('.CL_lastname').text(); 
 		
-		$('#data').val(data);
-		$set_firstname.text(firstname);
+		console.log(firstname);
+		console.log(data);
+		//$set_firstname.text();
 		$set_lastname.text(lastname);
 		
 		$('#update_response').text("");
@@ -31,25 +35,25 @@ $(document).ready(function() {
 		e.preventDefault(); //cancel form submit
 		
 		var obj = $put_example.serializeObject()
-			, firstname = $firstname.text()
-			, lastname = $lastname.text();
-		
+			, firstname = $set_firstname.val()
+			, lastname = $set_lastname.text();
+			console.log(lastname);
 		updateInventory(obj, firstname, lastname);
 	});
 });
 
-function updateInventory(obj, maker, code) {
-	
+function updateInventory(obj, firstname, lastname) {
+	console.log(obj);
 	ajaxObj = {  
 			type: "PUT",
-			url: "http://localhost:8080/REST_Service/api/V3/inventory/" + maker + "/" + code,
+			url: "http://localhost:8080/REST_Service/api/V3/inventory/" + firstname + "/" + lastname,
 			data: JSON.stringify(obj), 
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR.responseText);
 			},
 			success: function(data) {
-				//console.log(data);
+				console.log(data);
 				$('#update_response').text( data[0].MSG );
 			},
 			complete: function(XMLHttpRequest) {
@@ -98,8 +102,8 @@ function getInventory() {
 function templateGetInventory(param) {
 	return '<tr>' +
 				'<td class="CL_firstname">' + param.firstname + '</td>' +
-				'<td class="CL_PC_lastname">' + param.lastname + '</td>' +
-				'<td class="CL_set_data"> <button class="UPDATE_BTN" value=" ' + param.data + ' " type="button">Update</button> </td>' +
+				'<td class="CL_lastname">' + param.lastname + '</td>' +
+				'<td class="CL_set_data"> <button class="UPDATE_BTN" value=" ' + param.lastname + ' " type="button">Update</button> </td>' +
 			'</tr>';
 }
 

@@ -8,6 +8,68 @@ import utility.ToJson;
 
 public class DB_Schema {
 	
+	public int deleteData(String firstname, String lastname) throws Exception{
+		
+		System.out.println("dbSchema: " +firstname+lastname);
+		
+		PreparedStatement query = null;
+		Connection conn = null;
+	
+		try{
+			conn =  DataBaseCon.DBConn();
+			query = conn.prepareStatement("DELETE FROM test.first WHERE firstname = ? and lastname = ?");
+		
+			query.setString(1, firstname.replaceAll("\\s+",""));
+			query.setString(2, lastname.replaceAll("\\s+",""));
+			
+			query.executeUpdate();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return 500;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return 500;
+		}
+		finally{
+			if(conn!=null) conn.close();
+		}
+		
+		return 200;
+	}
+	
+	public int updateData(String f_name, String l_name) throws Exception{
+		System.out.println(l_name);
+		System.out.println(f_name);
+	
+		PreparedStatement query = null;
+		Connection conn = null;
+	
+		try{
+			conn =  DataBaseCon.DBConn();
+			query = conn.prepareStatement("UPDATE test.first SET firstname = ? WHERE lastname = ?");
+		
+			query.setString(1, f_name);
+			query.setString(2, l_name);
+			
+			query.executeUpdate();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return 500;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return 500;
+		}
+		finally{
+			if(conn!=null) conn.close();
+		}
+		
+		return 200;
+	}
+	
 	public int queryInsertData(String firstname, String lastname) throws Exception{
 		
 		PreparedStatement query = null;

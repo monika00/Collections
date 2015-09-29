@@ -129,7 +129,7 @@ public class V2_inventory {
 			int http_code = schema.queryInsertData(entry.firstname, entry.lastname);
 			
 			if(http_code==200){
-				returnString="Data inserted";
+				returnString = "Data inserted";
 			}else{
 				return Response.status(500).entity("Unable to proccess request").build();
 			}

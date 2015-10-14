@@ -1,14 +1,19 @@
 package trackingServiceTest;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.matchers.JUnitMatchers.*;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 
 import trackingService.InvalidGoalException;
 import trackingService.TrackingService;
@@ -51,6 +56,9 @@ public class TrackingServiceTest {
 		
 		service.addProtein(10);
 		assertEquals("Protein amount was not correct", 10, service.getTotal());
+		assertThat(service.getTotal(), is(10));
+		
+		assertThat(service.getTotal(), allOf(is(10), instanceOf(Integer.class)));
 	}
 	
 	@Test
@@ -61,12 +69,20 @@ public class TrackingServiceTest {
 		assertEquals(0, service.getTotal());
 	}
 	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	
 	@Test(expected = InvalidGoalException.class)
 	public void whenGoalIsSetLessThanZeroExceptionIsThrown() throws InvalidGoalException{
-		service.setGoal(-1);
+		thrown.expect(InvalidGoalException.class);
+		thrown.expectMessage("Goal was less than zero");
+		service.setGoal(-5);
 	}
 	
-	@Test(timeout=200)
+	@Rule
+	public Timeout timeout = new Timeout(20);
+	
+	@Test
 	public void badTest(){
 		for(int i=0;i<10;i++){
 			service.addProtein(1);

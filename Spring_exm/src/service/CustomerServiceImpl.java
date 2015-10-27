@@ -4,12 +4,23 @@ import java.util.List;
 
 import model.Customer;
 import repository.CustomerRepository;
-import repository.HBRepositoryImpl;
+
 
 public class CustomerServiceImpl implements CustomerService {
 	
-	private CustomerRepository customerRepository = new HBRepositoryImpl();
+	private CustomerRepository customerRepository;
 	
+	public CustomerServiceImpl(){
+	}
+	
+	public CustomerServiceImpl(CustomerRepository customerRepository){
+		this.customerRepository = customerRepository;
+	}
+	
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
+
 	/* (non-Javadoc)
 	 * @see service.CustomerService#findAll()
 	 */

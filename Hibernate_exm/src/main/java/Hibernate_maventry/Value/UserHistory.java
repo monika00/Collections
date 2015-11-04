@@ -1,4 +1,4 @@
-package Hibernate_maventry.HB;
+package Hibernate_maventry.Value;
 
 import java.util.Date;
 

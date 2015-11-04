@@ -1,4 +1,4 @@
-package Hibernate_maventry.HB;
+package Hibernate_maventry.Entity;
 
 public class ProteinData {
 

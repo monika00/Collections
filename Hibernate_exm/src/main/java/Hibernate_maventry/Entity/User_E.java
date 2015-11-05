@@ -1,7 +1,9 @@
 package Hibernate_maventry.Entity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class User_E {
@@ -9,10 +11,21 @@ public class User_E {
 	private int id;
 	private String name;
 	
-	private ProteinData proteinData = new ProteinData();
-
-
+	private ProteinData proteinData;
 	private List<UserHistory> history = new ArrayList<UserHistory>();
+	private Set<GoalAlert> goalAlerts = new HashSet<GoalAlert>();
+	
+	public Set<GoalAlert> getGoalAlerts() {
+		return goalAlerts;
+	}
+
+	public void setGoalAlerts(Set<GoalAlert> goalAlerts) {
+		this.goalAlerts = goalAlerts;
+	}
+
+	public User_E(){
+		setProteinData(new ProteinData());
+	}
 	
 	public List<UserHistory> getHistory() {
 		return history;
@@ -43,5 +56,6 @@ public class User_E {
 	}
 	public void setProteinData(ProteinData proteinData) {
 		this.proteinData = proteinData;
+		proteinData.setUser(this);
 	}
 }

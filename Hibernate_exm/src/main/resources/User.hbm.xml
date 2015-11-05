@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="Hibernate_maventry.HB.User" table="USERS">
+	<class name="Hibernate_maventry.Value.User" table="USERS">
 		<id name="id" type="int">
 			<column name="ID" />
 			<generator class="increment" />
@@ -21,7 +21,7 @@
 		
 		<!-- <set name="history" table="USER_HISTORY">
 			<key column="ID"/>
-			<composite-element class="Hibernate_maventry.HB.UserHistory">
+			<composite-element class="Hibernate_maventry.Value.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME" />
 				<property name="entry" type="string" column="ENTRY" />
 			</composite-element>
@@ -30,7 +30,7 @@
 		<!-- <list name="history" table="USER_HISTORY">
 			<key column="ID"/>
 			<list-index column="POSITION"/>
-			<composite-element class="Hibernate_maventry.HB.UserHistory">
+			<composite-element class="Hibernate_maventry.Value.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME" />
 				<property name="entry" type="string" column="ENTRY" />
 			</composite-element>
@@ -39,7 +39,7 @@
 		<!-- <map name="history" table="USER_HISTORY">
 			<key column="ID"/>
 			<map-key type="string" column="ENTRY_IDENTIFIER" />
-			<composite-element class="Hibernate_maventry.HB.UserHistory">
+			<composite-element class="Hibernate_maventry.Vlaue.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME" />
 				<property name="entry" type="string" column="ENTRY" />
 			</composite-element>
@@ -50,7 +50,7 @@
 				<generator class="increment" />
 			</collection-id>
 			<key column="USER_ID"/>
-			<composite-element class="Hibernate_maventry.HB.UserHistory">
+			<composite-element class="Hibernate_maventry.Value.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME" />
 				<property name="entry" type="string" column="ENTRY" />
 			</composite-element>

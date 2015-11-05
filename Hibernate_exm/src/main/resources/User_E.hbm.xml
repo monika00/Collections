@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Hibernate_maventry.Entity.User_E" table="USERS">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		
+		<!-- <one-to-one name="proteinData" class="Hibernate_maventry.Entity.ProteinData" cascade="save-update" /> -->
+		<many-to-one name="proteinData" class="Hibernate_maventry.Entity.ProteinData" column="PROTEIN_DATA_ID" cascade="save-update" unique="true" />
+		
+		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
+			<key column="USER_ID"/>
+			<list-index column="POSITION"/>
+			<one-to-many class="Hibernate_maventry.Entity.UserHistory" />
+		</list> 
+		
+		<!-- <join table="USER_GOALALERT" optional="true">
+			<key column="USER_ID" />
+			<many-to-one name="goalAlert" column="GOALALERT_ID" not-null="true" unique="true" cascade="save-update"/>
+		</join> -->
+		
+		<set name="goalAlerts" table="USER_GOALALERT" cascade="save-update">
+			<key column="USER_ID" />
+			<many-to-many class="Hibernate_maventry.Entity.GoalAlert" column="GOALALERT_ID"/>
+		</set>
+	</class>
+</hibernate-mapping>

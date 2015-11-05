@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>Hibernate_maventry</groupId>
-	<artifactId>HB</artifactId>
+	<artifactId>Value</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>HB</name>
+	<name>Value</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

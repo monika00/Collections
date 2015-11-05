@@ -18,6 +18,9 @@ public class Program {
 		user.getProteinData().setGoal(1);
 		user.addHistory(new UserHistory(new Date(), "Set the goal to 1"));
 		user.getProteinData().setTotal(5);
+		user.getGoalAlerts().add(new GoalAlert("Congratulations!"));
+		user.getGoalAlerts().add(new GoalAlert("You did it!"));
+
 		
 		session.save(user);
 		session.getTransaction().commit();
@@ -32,6 +35,8 @@ public class Program {
 		}
 		loadedUser.getProteinData().setTotal(loadedUser.getProteinData().getTotal()+50);
 		loadedUser.addHistory(new UserHistory(new Date(), "Addeed 50 protein"));
+		
+		user.setProteinData(new ProteinData());
 		
 		session.getTransaction().commit();
 		

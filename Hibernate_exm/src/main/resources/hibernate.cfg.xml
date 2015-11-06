@@ -2,19 +2,22 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://www.hibernate.org/dtd//hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory>
-  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-  <property name="hibernate.connection.url">jdbc:postgresql://localhost/testdb</property>
-  <property name="hibernate.connection.username">postgres</property>
-  <property name="hibernate.default_schema">test</property>
-  <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-  <property name="hibernate.connection.password">slaptazodis00</property>
-  <property name="hibernate.show_sql">true</property>
-  <property name="hibernate.hbm2ddl.auto">create</property>
-  <!-- <mapping resource="User.hbm.xml"/> -->
-  <mapping resource="User_E.hbm.xml"/>
-  <mapping resource="UserHistory.hbm.xml"/>
-  <mapping resource="ProteinData.hbm.xml" />
-  <mapping resource="GoalAlert.hbm.xml"/>
- </session-factory>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost/testdb</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.default_schema">test</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.password">slaptazodis00</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<!-- <mapping resource="User.hbm.xml"/> FOR VALUE -->
+		<!-- <mapping resource="User_E.hbm.xml"/> <mapping resource="UserHistory.hbm.xml"/> 
+			<mapping resource="ProteinData.hbm.xml" /> <mapping resource="GoalAlert.hbm.xml"/> 
+			FOR ENTITY -->
+		<mapping resource="User_HQL.hbm.xml" />
+		<mapping resource="UserHistory_HQL.hbm.xml" />
+		<mapping resource="ProteinData_HQL.hbm.xml" />
+		<mapping resource="GoalAlert_HQL.hbm.xml" />
+	</session-factory>
 </hibernate-configuration>

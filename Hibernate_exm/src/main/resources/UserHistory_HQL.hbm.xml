@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Hibernate_maventry.HQL.UserHistory_HQL" table="USERHISTORY">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="increment" />
+		</id>
+		
+		<many-to-one name="user" class="Hibernate_maventry.HQL.User_HQL" not-null="true">
+			<column name="USER_ID" />
+		</many-to-one>
+		
+		<property name="entryTime" type="java.util.Date">
+			<column name="ENTRYTIME" />
+		</property>
+		<property name="entry" type="java.lang.String">
+			<column name="ENTRY" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+package Testing.Injections;
+
+import java.util.List;
+
+public interface SalesRepository {
+	
+	public List<Sale> loadSales();
+
+}
